@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+
+    <script>
+      var str = 'asdfssaaasasasasaa';
+      var json = {};
+       console.log(json);
+       
+      for (var i = 0; i < str.length; i++) {
+      	   
+          if(!json[str.charAt(i)]){   //json[str.charAt(0)]表示  json键a 的值
+          	
+             json[str.charAt(i)] = 1;
+             }else{
+                json[str.charAt(i)]++;
+                   }
+        }
+//      json存完之后  变成{
+//    	                  a:9
+//    	                  d:1
+//    	                  f:1
+//    	                  s:7
+//    	                }
+      	                
+      console.log(json.a);//获取json中的某个属性
+      
+      var iMax = 0;//声明值
+      var iIndex = '';//声明键
+       for(var i in json){//对应是json中的键，json[i]对应是json键的值
+    if(json[i]>iMax){
+         iMax = json[i];
+         iIndex = i;
+    }
+}        
+console.log('出现次数最多的是:'+iIndex+'出现'+iMax+'次');
+
+
+//  var json1 = 
+//  {name :'jack',
+//  age : 25,
+//  gender : 'male' 
+//  }
+//  
+//  
+//  for (var attr in json1) {
+//      console.log(attr);//name,age,gender
+//      console.log(json1[attr]);//jack,25,male
+//      console.log(typeof json1[attr]);
+//  }
+//      
+     </script>
+	</body>
+</html>

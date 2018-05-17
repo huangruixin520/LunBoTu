@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="jquery-3.3.1.min.js"></script>		
+		<script>
+			var i=0;//全局变量
+			var timer;
+			$(document).ready(function(){//函数开始执行
+				$(".pg").eq(0).show().siblings().hide();
+				showtimer();	
+				
+				$(".tab").hover(function(){
+					i=$(this).index();
+					show();
+					clearInterval(timer);
+				},function(){
+					showtimer();
+				});
+                function showtimer(){//自动播放图片函数
+				timer=setInterval(function(){
+					i++;
+					if(i==4){
+						i=0;
+					}
+					show();//显示指定图片和指定的dot背景颜色
+				},3500);
+			}			
+			function show(){//显示指定图片和指定的dot背景颜色
+				$(".pg").eq(i).fadeIn(500).siblings().fadeOut(500);
+			    $(".tab").eq(i).addClass("bg").siblings().removeClass("bg");
+			}
+			//左右按钮功能实现
+			$(".btn-l").click(function(){			
+				if(i==0){
+					i=4;
+				}	
+				i--;
+				 show();
+			});
+			$(".btn-r").click(function(){
+				if(i==3){
+					i=-1;
+				}
+				i++;
+				show();
+			});
+	});
+		</script>
+	
+	
+	
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.wrap{
+				/*position: absolute;*/
+				
+			}
+			.wrap .pg{
+				position: absolute;
+			}
+			.wrap .pg img{
+				position: absolute;
+				width: 500px;
+				height: 250px;
+			}
+			
+			.btn-l{
+				cursor: pointer;
+				position: absolute;
+				width: 30px;
+				height: 50px;
+				background:rgb(211,211,211,0.5);
+				top: 100px;
+				line-height: 50px;
+				text-align: center;
+			}
+			.btn-r{
+				cursor: pointer;
+				position: absolute;
+				width: 30px;
+				height: 50px;
+				background: rgb(211,211,211,0.5);
+				top: 100px;
+				left: 470px;
+				line-height: 50px;
+				text-align: center;	
+			}
+			.tabs{
+				position: absolute;
+				width: 100px;				
+				top: 215px;
+				left: 175px;
+			}
+			.tabs .tab{
+				margin-right: 10px;
+				width: 15px;
+				height: 15px;
+				text-align: center;
+				line-height: 15px;
+				background-color:lightgray;
+				color: white;
+				font-size: 10px;
+				border-radius: 100%;
+				float: left;
+				cursor: pointer;
+			}
+			.tabs .bg{
+				background-color: orangered;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="wrap"> 
+			<div class="pg"><img src="img/11.jpg"></div>
+			<div class="pg"><img src="img/22.jpg"></div>
+			<div class="pg"><img src="img/33.jpg"></div>		
+			<div class="pg"><img src="img/44.jpg"></div>		
+		</div>			    
+		<div class="btn-l"><</div>
+		<div class="btn-r">></div>
+		<div class="tabs">
+			<div class="tab bg">1</div>
+			<div class="tab">2</div>
+			<div class="tab">3</div>
+			<div class="tab">4</div>
+		</div>
+	</body>
+</html>

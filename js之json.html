@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.3.1.min.js"></script>		
+	</head>
+	<body>	
+		<script>
+			var jsonArr=[{
+				    "name":"huang",
+				     "age":"18"
+			        },
+			         {
+				    "name":"li",
+				    "age":"22"
+			         }];
+			         
+//			console.log(jsonArr[0]);
+                 
+			for(var key=0 in jsonArr[0]){
+				console.log(key);
+				console.log(jsonArr[0][key])//表示第一组json对象 的所有 属性   *值*
+			}
+			    
+			    
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+                   Array.prototype.sort=function(){
+          	    var res=[this[0]];       	    
+          	    for(var i=1;i<this.length;i++){
+        	    	var repeat=false;//注意必须放在这里
+          	    	 for(var j=0;j<res.length;j++){
+          	    	 	  if(this[i]==res[j]){
+          	    	 	  	   repeat=true;
+          	    	 	  	   
+          	    	 	  	    break;
+          	    	 	  }
+          	    	 }
+          	    	 if(repeat==false){
+          	    	 	  res.push(this[i]);
+          	    	 }
+          	    	 
+          	    }
+          	    return res;
+          	  }
+           
+          	  
+         var arr=[1,2,5,5,5,4,6,2,1,1];
+         alert(arr.sort());
+         
+         
+		</script>
+	</body>
+</html>
